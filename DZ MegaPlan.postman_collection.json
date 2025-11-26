@@ -286,56 +286,13 @@
 			"response": []
 		},
 		{
-			"name": "Authorization1-1",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "formdata",
-					"formdata": [
-						{
-							"key": "username",
-							"value": "yura.torbunov+test1@gmail.com",
-							"type": "text"
-						},
-						{
-							"key": "password",
-							"value": "test123",
-							"type": "text"
-						},
-						{
-							"key": "grant_type",
-							"value": "password",
-							"type": "text"
-						}
-					]
-				},
-				"url": {
-					"raw": "https://m74965812.megaplan.ru/api/v3/auth/access_token",
-					"protocol": "https",
-					"host": [
-						"m74965812",
-						"megaplan",
-						"ru"
-					],
-					"path": [
-						"api",
-						"v3",
-						"auth",
-						"access_token"
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "Accept a completed task",
 			"request": {
 				"method": "POST",
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer NmZiYmUzNWI3NjY4NTAyNWM5MWFkNjk0NGE2MTNmMDEwZDc3NTQ1ZDI5N2M4NGIxMjI5MGIxYzM3ZDg0ZTcxYQ",
+						"value": "Bearer NWU5NmE4NGU2NjI5ZGM0ZjA0NmY3ZTM2YzhiMmRiMjczYzMwNGM3YjFhM2Y0MjE4NDIyNTFlOTFhMjc3ZTI4ZA",
 						"type": "text"
 					}
 				],
