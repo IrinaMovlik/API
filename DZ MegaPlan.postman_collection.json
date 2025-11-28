@@ -4,7 +4,7 @@
 		"name": "DZ MegaPlan",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "49074238",
-		"_collection_link": "https://ira-busko-9723-6643522.postman.co/workspace/%D0%98%D1%80%D0%B8%D0%BD%D0%B0-%D0%9C%D0%BE%D0%B2%D0%BB%D0%B8%D0%BA's-Workspace~8509bd0b-eccf-4537-853d-f93d8d61df09/collection/49074238-b912e7c0-6c8c-448f-8a85-5a5d5aadeea6?action=share&source=collection_link&creator=49074238"
+		"_collection_link": "https://ira-busko-9723-6643522.postman.co/workspace/%25D0%2598%25D1%2580%25D0%25B8%25D0%25BD%25D0%25B0-%25D0%259C%25D0%25BE%25D0%25B2%25D0%25BB%25D0%25B8%25D0%25BA's-Workspace~8509bd0b-eccf-4537-853d-f93d8d61df09/collection/49074238-b912e7c0-6c8c-448f-8a85-5a5d5aadeea6?action=share&source=collection_link&creator=49074238"
 	},
 	"item": [
 		{
@@ -16,7 +16,11 @@
 						"exec": [
 							"pm.test(\"Status code is 200\", function () {\r",
 							"    pm.response.to.have.status(200);\r",
-							"});"
+							"});\r",
+							"var jsonData = pm.response.json();\r",
+							"if (jsonData.access_token) {\r",
+							"    pm.collectionVariables.set(\"token\", jsonData.access_token)\r",
+							"}"
 						],
 						"type": "text/javascript",
 						"packages": {},
@@ -89,7 +93,14 @@
 							"pm.test(\"Status task\", function () {\r",
 							"    var jsonData = pm.response.json();\r",
 							"    pm.expect(jsonData.data.status).to.eql(\"assigned\");\r",
-							"});"
+							"});\r",
+							"\r",
+							"var jsonData = pm.response.json();\r",
+							"if (jsonData.data.id) {\r",
+							"    pm.collectionVariables.set(\"id_task\", jsonData.data.id)\r",
+							"}\r",
+							"\r",
+							""
 						],
 						"type": "text/javascript",
 						"packages": {},
@@ -102,7 +113,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer {{Token1}}",
+						"value": "Bearer {{token1}}",
 						"type": "text"
 					}
 				],
@@ -159,7 +170,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer {{Token1}}",
+						"value": "Bearer {{token1}}",
 						"type": "text"
 					}
 				],
@@ -199,7 +210,12 @@
 						"exec": [
 							"pm.test(\"Status code is 200\", function () {\r",
 							"    pm.response.to.have.status(200);\r",
-							"});"
+							"});\r",
+							"\r",
+							"var jsonData = pm.response.json();\r",
+							"if (jsonData.access_token) {\r",
+							"    pm.collectionVariables.set(\"token2\", jsonData.access_token)\r",
+							"}"
 						],
 						"type": "text/javascript",
 						"packages": {},
@@ -379,8 +395,9 @@
 							"\r",
 							"pm.test(\"Comment\", function () {\r",
 							"    var jsonData = pm.response.json();\r",
-							"    pm.expect(jsonData.value.data.content).to.eql(\"<p>Все хорошо!</p>\");\r",
-							"});"
+							"    pm.expect(jsonData.data.content).to.eql(\"<p>Все хорошо!</p>\");\r",
+							"});\r",
+							""
 						],
 						"type": "text/javascript",
 						"packages": {},
@@ -452,7 +469,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer {{Token1}}",
+						"value": "Bearer {{token1}}",
 						"type": "text"
 					}
 				],
@@ -516,7 +533,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer {{Token1}}",
+						"value": "Bearer {{token1}}",
 						"type": "text"
 					}
 				],
@@ -548,21 +565,46 @@
 			"response": []
 		}
 	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
 	"variable": [
 		{
-			"key": "Token1",
-			"value": "",
-			"type": "default"
+			"key": "token1",
+			"value": ""
 		},
 		{
 			"key": "token2",
-			"value": "",
-			"type": "default"
+			"value": ""
 		},
 		{
 			"key": "id_task",
-			"value": "",
-			"type": "default"
+			"value": ""
+		},
+		{
+			"key": "token",
+			"value": ""
 		}
 	]
 }
